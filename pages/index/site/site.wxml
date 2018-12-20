@@ -1,0 +1,57 @@
+<!--pages/index/site/site.wxml-->
+<navbar back text="{{navigationBarTitle}}"></navbar>
+<view class="container" style="{{'padding-top:' + navigationBarHeight}}">
+  <view class='site-box'>
+    <view class='site-header'>
+      <image class='site-header-image' src='{{siteIcon}}'></image>
+      <text class='site-header-name'>{{siteName}}</text>
+    </view>
+    <text class='site-intro' wx:if='{{siteDescription}}'>{{siteDescription}}</text>
+    <text class='site-intro' wx:else>暂无简介</text>
+    <view class='site-info'>
+      <text class='follow-text'>关注</text>
+      <text class='follow-num'> {{followNum}}</text>
+      <text class='fans-text'>粉丝</text>
+      <text class='fans-num'> {{siteFollowers}}</text>
+    </view>
+  </view>
+  <view class='func-bar'>
+    <view class='production'>
+      <text class='production-num'>{{counts}}</text>
+      <text class='production-name'>作品</text>
+    </view>
+    <view class='favorite'>
+      <text class='favorite-num'>0</text>
+      <text class='favorite-name'>喜欢</text>
+    </view>
+    <view class='activity'>
+      <text class='activity-num'>0</text>
+      <text class='activity-name'>活动</text>
+    </view>
+  </view>
+  <view class='post-item-box'>
+    <!-- 图文作品 -->
+    <block wx:for="{{postList}}" wx:key="unique_post_item">
+      <view class='post-item' wx:if='{{item.type=="multi-photo"}}'>
+        <view class='post-item-title'>
+          <text>{{item.title}}</text>
+        </view>
+        <image class='post-item-image' mode='aspectFill' src='https://photo.tuchong.com/{{item.images[0].user_id}}/g/{{item.images[0].img_id}}.jpg' data-src='https://photo.tuchong.com/{{item.images[0].user_id}}/f/{{item.images[0].img_id}}.jpg' data-images='{{item.images}}' bindtap='viewImagesDetails'></image>
+        <view class='post-item-footer-func'>
+          <image class='post-item-footer-icon' src='/images/likes_white.png'></image>
+          <text class='likes-num'>{{item.favorites}}</text>
+          <image class='post-item-footer-icon' src='/images/comments_white.png'></image>
+          <text class='comments-num'>{{item.comments}}</text>
+          <image class='post-item-footer-icon' src='/images/photos_white.png'></image>
+          <text class='photos-num'>{{item.image_count}}</text>
+        </view>
+      </view>
+    </block>
+    <!-- 加载图标 -->
+    <view class='loading' wx:if='{{more}}'>
+      <image src='/images/loading.png'></image>
+      <!-- <text>加载中……</text> -->
+    </view>
+    <view class='no-data' wx:else>——我是有底线的——</view>
+  </view>
+</view>

@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<!-- <navbar back home text="{{navigationBarTitle}}"></navbar> -->
+<view class="container" style="{{'margin-top:' + navigationBarHeight}}">
+  <!-- <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> avatar </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view> -->
+  <image class="sister" src='/images/mainvisual.png'></image>
+  <image class="sister" src='/images/mainvisual.png'></image>
+  <image class="sister" src='/images/mainvisual.png'></image>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>

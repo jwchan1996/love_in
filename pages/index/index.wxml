@@ -1,0 +1,39 @@
+<!--pages/hot/hot.wxml-->
+<navbar text="{{navigationBarTitle}}"></navbar>
+<view class="container" style="{{'padding-top:' + navigationBarHeight}}">
+  <block wx:for="{{feedList}}" wx:key="unique_post_item">
+    <view class='post-item' wx:if='{{item.type=="multi-photo"}}'>
+      <view class='post-item-header'>
+        <image class='author-avatar' src='{{item.site.icon}}' data-site-id='{{item.site.site_id}}' data-site-name='{{item.site.name}}' data-site-icon='{{item.site.icon}}' data-site-description='{{item.site.description}}' data-site-followers='{{item.site.followers}}' bindtap='viewSiteDetails'></image>
+        <text class='author-name'>{{item.site.name}}</text>
+      </view>
+      <block wx:for="{{item.images}}" wx:key="unique_img" wx:for-item='imgItem'>
+        <image class='post-item-image' src='https://photo.tuchong.com/{{item.author_id}}/ft640/{{imgItem.img_id}}.jpg' data-src='https://photo.tuchong.com/{{item.author_id}}/f/{{imgItem.img_id}}.jpg' data-images='{{item.images}}' mode='widthFix' bindtap='viewImageDetails'></image>
+      </block>
+      <view class='post-item-footer'>
+        <view class='post-item-footer-summary'>
+          <text style='padding:0 20px;word-break:break-all;'>
+            <text class='title' wx:if='{{item.title}}'>《{{item.title}}》</text>
+            <text class='content'>{{item.content}}</text>
+          </text>      
+        </view>
+        <view class='post-item-footer-func'>
+          <image class='post-item-footer-icon' src='/images/likes.png'></image>
+          <text class='likes-num'>{{item.favorites}}</text>
+          <image class='post-item-footer-icon' src='/images/comments.png'></image>
+          <text class='comments-num'>{{item.comments}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+  <!-- <view wx:if='{{feedList==null}}' class='no-data'>
+    <image src='/images/loading.png'></image>
+    <text>加载中……</text>
+  </view> -->
+  <!-- 加载图标 -->
+  <view class='loading' wx:if='{{more}}'>
+    <image src='/images/loading.png'></image>
+    <!-- <text>加载中……</text> -->
+  </view>
+  <view class='no-data' wx:else>——我是有底线的——</view>
+</view>

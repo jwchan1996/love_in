@@ -1,0 +1,116 @@
+/* pages/hot/hot.wxss */
+.container{
+  background-color: #fff;
+}
+
+/*项*/
+.post-item{
+  position: relative;
+  /* background-color: #1abc9c; */
+  box-shadow: 1px 4px 10px 4px #ccc;
+  margin: 10px 0;
+  background-color: #1abc9c;
+}
+
+/*项头*/
+.post-item-header{
+  height: 128rpx;
+  width: auto;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 2px solid #F2AA24;
+}
+.author-avatar{
+  height: 88rpx;
+  width: 88rpx;
+  margin-left: 40rpx;
+  border-radius: 50%;
+  border: 1px solid #eee;
+}
+.author-name{
+  margin-left: 20rpx;
+  color: #515151;
+}
+
+/*项图片*/
+.post-item-image{
+  width: 100%;
+  background-color: #F2AA24;
+}
+
+/*项脚*/
+.post-item-footer{
+  height: auto;
+  width: auto;
+  background-color: #fff;
+  /* display: flex;
+  flex-direction: row;
+  align-items: center; */
+}
+.post-item-footer-summary{    /*简介*/
+  width: auto;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 0 0;
+}
+.title{
+  color: #515151;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.content{
+  color: #999;
+  font-size: 32rpx;
+}
+.post-item-footer-func{   /*功能栏*/
+  height: 108rpx;
+  width: auto;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.post-item-footer-icon{
+  height: 44rpx;
+  width: 44rpx;
+  margin-left: 20px;
+}
+.likes-num,.comments-num{
+  color: #626262;
+  font-size: 32rpx;
+  margin-left: 4px;
+}
+
+/*没有数据，正在加载*/
+.loading{
+  text-align: center;
+  padding-top: 60rpx;
+  padding-bottom: 60rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loading image{
+  height: 80rpx;
+  width: 80rpx;
+  animation: que 1.6s linear infinite;
+}
+@keyframes que{
+  /*以百分比来规定改变发生的时间 也可以通过"from"和"to",等价于0% 和 100%*/
+  0%{
+    /*rotate(2D旋转) scale(放大或者缩小) translate(移动) skew(翻转)*/
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.no-data{
+  text-align: center;
+  color: #999999;
+  font-size: 28rpx;
+}

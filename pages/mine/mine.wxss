@@ -1,0 +1,29 @@
+/* pages/mine/mine.wxss */
+/*没有数据*/
+.no-data{
+  text-align: center;
+  padding-top: 200rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.no-data image{
+  height: 400rpx;
+  width: 400rpx;
+  animation: que 1.6s linear infinite;
+}
+@keyframes que{
+  /*以百分比来规定改变发生的时间 也可以通过"from"和"to",等价于0% 和 100%*/
+  0%{
+    /*rotate(2D旋转) scale(放大或者缩小) translate(移动) skew(翻转)*/
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.no-data text{
+  padding-top: 100rpx;
+  color: #999999;
+  font-size: 32rpx;
+}
