@@ -6,10 +6,9 @@
 /*项*/
 .post-item{
   position: relative;
-  /* background-color: #1abc9c; */
+  background-color: #1abc9c;
   box-shadow: 1px 4px 10px 4px #ccc;
   margin: 10px 0;
-  background-color: #1abc9c;
 }
 
 /*项头*/
