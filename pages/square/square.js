@@ -1,11 +1,19 @@
 // pages/square/square.js
+//获取应用实例
+const app = getApp()
+//自定义导航条高度
+const navigationBarHeight = (app.statusBarHeight + 44) + 'px'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    //导航条标题
+    // navigationBarTitle: '情之林',
+    navigationBarTitle: '热门新番',
+    navigationBarHeight: navigationBarHeight,
   },
 
   /**
