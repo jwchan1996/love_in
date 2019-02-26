@@ -11,7 +11,7 @@
       interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
       <block wx:for="{{imgUrls}}" wx:key="*this">
         <swiper-item>
-          <image src="{{item}}" mode="aspectFill"></image>
+          <image class="swiper-image" src="{{item}}" mode="aspectFill"></image>
         </swiper-item>
       </block>
     </swiper>

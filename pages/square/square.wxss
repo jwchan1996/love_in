@@ -18,12 +18,15 @@ page {
 .page-section-spacing{
   box-sizing: border-box;
   padding: 0;
-  background-color: #009688;
+  background-color: #ECECEC;
 }
 swiper{
   height: 56.25vw;
+  width: 100vw;
 }
 .swiper-item{
   display: block;
-  height: 150rpx;
+}
+.swiper-image{
+  width: 100vw;
 }
