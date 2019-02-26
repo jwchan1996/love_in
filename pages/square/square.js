@@ -15,18 +15,17 @@ Page({
     // navigationBarTitle: '情之林',
     navigationBarTitle: '热门新番',
     navigationBarHeight: navigationBarHeight,
-    src: '',
-    danmuList: [
-      {
-        text: '第 1s 出现的弹幕',
-        color: '#ff0000',
-        time: 1
-      },
-      {
-        text: '第 3s 出现的弹幕',
-        color: '#ff00ff',
-        time: 3
-      }]
+    imgUrls: [
+      'http://wx4.sinaimg.cn/mw690/0060lm7Tly1fz3nlb1njaj30u016gn54.jpg',
+      'https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike272%2C5%2C5%2C272%2C90/sign=cbb11d8401d79123f4ed9c26cc5d32e7/b8389b504fc2d56284049d61ea1190ef76c66c29.jpg',
+      'http://wx2.sinaimg.cn/mw690/0060lm7Tly1fz4upw54j4j30ch0hsdh7.jpg'
+    ],
+    indicatorDots: true,
+    vertical: false,
+    autoplay: true,
+    circular: false,
+    interval: 3000,
+    duration: 800,
   },
 
   /**
@@ -40,7 +39,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function (res) {
-    this.videoContext = wx.createVideoContext('myVideo')
+    
   },
 
   /**
@@ -84,37 +83,4 @@ Page({
   onShareAppMessage: function () {
 
   },
-
-  bindInputBlur(e) {
-    this.inputValue = e.detail.value
-  },
-  bindButtonTap() {
-    const that = this
-    wx.chooseVideo({
-      sourceType: ['album', 'camera'],
-      maxDuration: 60,
-      camera: ['front', 'back'],
-      success(res) {
-        that.setData({
-          src: res.tempFilePath
-        })
-      }
-    })
-  },
-  bindSendDanmu() {
-    this.videoContext.sendDanmu({
-      text: this.inputValue,
-      color: getRandomColor()
-    })
-  }
 })
-
-function getRandomColor() {
-  const rgb = []
-  for (let i = 0; i < 3; ++i) {
-    let color = Math.floor(Math.random() * 256).toString(16)
-    color = color.length == 1 ? '0' + color : color
-    rgb.push(color)
-  }
-  return '#' + rgb.join('')
-}

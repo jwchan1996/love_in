@@ -1,25 +1,22 @@
 <!--index.wxml-->
 <navbar text="{{navigationBarTitle}}"></navbar>
 <view class="container" style="{{'padding-top:' + navigationBarHeight}}">
-  <block wx:for="{{weekList}}" wx:key="unique_post_item">
+  <!-- <block wx:for="{{weekList}}" wx:key="unique_post_item">
     <view></view>
-  </block>
+  </block> -->
 
-  <view class="section tc">
-    <view class="section tc">
-      <video
-        id="myVideo"
-        src="https://pl.dogecloud.com/vcloud/hls/m3u8/51842?tm=1550856390&vtype=5&uid=16&sign=d11cba862e3bcb902ba555f3de66ba25&icp=0&durlimit=0&server=s1&vkey=B780D2F2C992488AED5708080CA0F85D601656D70AE565A8AF003EE062EACF124AB5406FAD7830C6784B5AD91FCE8C1D23291EAF9352B95BB48090385DF9AE28945AEEF2E984B706D7B87C660738FD25"
-        danmu-list="{{danmuList}}"
-        enable-danmu
-        danmu-btn
-        controls
-      ></video>
-      <view class="btn-area">
-        <button bindtap="bindButtonTap">获取视频</button>
-        <input bindblur="bindInputBlur" />
-        <button bindtap="bindSendDanmu">发送弹幕</button>
-      </view>
-    </view>
+  <view class="page-section page-section-spacing">
+    <swiper
+      indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
+      interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+      <block wx:for="{{imgUrls}}" wx:key="*this">
+        <swiper-item>
+          <image src="{{item}}" mode="aspectFill"></image>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
+
+  <view>666</view>
+
 </view>

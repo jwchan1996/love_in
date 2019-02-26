@@ -1,45 +1,29 @@
 /**index.wxss**/
-page{
-  background-color: #1abc9c;
-}
 
-.container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 20px;
-  background: linear-gradient(#1abc9c,#009688);
-}
+/* @import "./weui.wxss"; */
 
-button{
-  background-color: #1abc9c;
-  color: #fff;
+page {
+  background-color: #F8F8F8;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 1.6;
 }
-
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 28rpx;
+.page-body{
+  padding-top: 60rpx;
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.page-section{
+  width: 100%;
+  /* margin-bottom: 60rpx; */
 }
-
-.userinfo-nickname {
-  color: #eee;
+.page-section-spacing{
+  box-sizing: border-box;
+  padding: 0;
+  background-color: #009688;
 }
-
-.usermotto {
-  padding-top: 20px;
-  color: #eee;
+swiper{
+  height: 56.25vw;
 }
-
-.sister{
-  height: 680rpx;
-  width: 400rpx;
+.swiper-item{
+  display: block;
+  height: 150rpx;
 }
