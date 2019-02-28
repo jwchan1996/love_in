@@ -1,0 +1,29 @@
+/* components/slide-swiper/slide-swiper.wxss */
+page {
+  background-color: #F8F8F8;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 1.6;
+}
+.page-body{
+  padding-top: 60rpx;
+}
+.page-section{
+  width: 100%;
+  /* margin-bottom: 60rpx; */
+}
+.page-section-spacing{
+  box-sizing: border-box;
+  padding: 0;
+  background-color: #ECECEC;
+}
+swiper{
+  height: 56.25vw;
+  width: 100vw;
+}
+.swiper-item{
+  display: block;
+}
+.swiper-image{
+  width: 100vw;
+}
