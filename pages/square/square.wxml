@@ -1,9 +1,6 @@
 <!--index.wxml-->
 <navbar text="{{navigationBarTitle}}"></navbar>
 <view class="container" style="{{'padding-top:' + navigationBarHeight}}">
-  <!-- <block wx:for="{{weekList}}" wx:key="unique_post_item">
-    <view></view>
-  </block> -->
 
   <view class="page-section page-section-spacing">
     <swiper
@@ -16,7 +13,5 @@
       </block>
     </swiper>
   </view>
-
-  <view>666</view>
 
 </view>
