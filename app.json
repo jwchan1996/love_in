@@ -19,13 +19,13 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "热门",
+        "text": "摄影",
         "iconPath": "images/tag_hot.png",
         "selectedIconPath": "images/tag_hot_selected.png"
       },
       {
         "pagePath": "pages/square/square",
-        "text": "广场",
+        "text": "番剧",
         "iconPath": "images/tag_square.png",
         "selectedIconPath": "images/tag_square_selected.png"
       },
