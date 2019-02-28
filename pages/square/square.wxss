@@ -1,32 +1,30 @@
-/**index.wxss**/
-
-/* @import "./weui.wxss"; */
-
 page {
   background-color: #F8F8F8;
   height: 100%;
   font-size: 32rpx;
   line-height: 1.6;
 }
-.page-body{
-  padding-top: 60rpx;
+
+.search{
+  background-color: #DCDCDC;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
-.page-section{
-  width: 100%;
-  /* margin-bottom: 60rpx; */
+.search image{
+  width: 54rpx;
+  height: 54rpx;
+  background-color: #FEFEFE;
+  border-top-left-radius: 40rpx;
+  border-bottom-left-radius: 40rpx;
 }
-.page-section-spacing{
-  box-sizing: border-box;
-  padding: 0;
-  background-color: #ECECEC;
-}
-swiper{
-  height: 56.25vw;
-  width: 100vw;
-}
-.swiper-item{
-  display: block;
-}
-.swiper-image{
-  width: 100vw;
+.search input{
+  height: 40rpx;
+  width: 70vw;
+  background-color: #FEFEFE;
+  border-top-right-radius: 40rpx;
+  border-bottom-right-radius: 40rpx;
+  padding: 0 20rpx;
 }
