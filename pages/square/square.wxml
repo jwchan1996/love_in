@@ -1,17 +1,5 @@
 <!--index.wxml-->
-<navbar text="{{navigationBarTitle}}"></navbar>
+<nav-bar text="{{navigationBarTitle}}"></nav-bar>
 <view class="container" style="{{'padding-top:' + navigationBarHeight}}">
-
-  <view class="page-section page-section-spacing">
-    <swiper
-      indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
-      interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
-      <block wx:for="{{imgUrls}}" wx:key="*this">
-        <swiper-item>
-          <image class="swiper-image" src="{{item}}" mode="aspectFill"></image>
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
-
+  <slide-swiper></slide-swiper>
 </view>

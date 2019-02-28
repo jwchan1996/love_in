@@ -1,5 +1,5 @@
 <!--pages/mine/mine.wxml-->
-<navbar text="{{navigationBarTitle}}"></navbar>
+<nav-bar text="{{navigationBarTitle}}"></nav-bar>
 <view class="container" style="{{'padding-top:' + navigationBarHeight}}">
   <view wx:if='{{feedList==null}}' class='no-data'>
     <image src='/images/empty.png'></image>

@@ -1,5 +1,5 @@
 <!--pages/hot/hot.wxml-->
-<navbar text="{{navigationBarTitle}}"></navbar>
+<nav-bar text="{{navigationBarTitle}}"></nav-bar>
 <view class="container" style="{{'padding-top:' + navigationBarHeight}}">
   <block wx:for="{{feedList}}" wx:key="unique_post_item">
     <view class='post-item' wx:if='{{item.type=="multi-photo"}}'>
