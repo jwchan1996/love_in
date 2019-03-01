@@ -36,11 +36,17 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
 					"name": "广场",
+					"pathName": "pages/square/square",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "番剧",
 					"pathName": "pages/square/square"
 				}
 			]

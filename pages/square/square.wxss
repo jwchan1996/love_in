@@ -27,4 +27,14 @@ page {
   border-top-right-radius: 40rpx;
   border-bottom-right-radius: 40rpx;
   padding: 0 20rpx;
+  font-size: 28rpx;
+  color: #515151;
+}
+.placeholder {
+  /* placeholder颜色  */
+  color: #aab2bd;
+  /* placeholder字体大小  */
+  font-size: 24rpx;
+  /* placeholder位置  */
+  text-align: left;
 }
