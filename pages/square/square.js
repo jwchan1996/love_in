@@ -12,6 +12,14 @@ Page({
     //导航条标题
     navigationBarTitle: '热门新番',
     navigationBarHeight: navigationBarHeight,
+    weekList: [],
+    Monday: [],
+    Tuesday: [],
+    Wednesday: [],
+    Thursday: [],
+    Friday: [],
+    Saturday: [],
+    Sunday: [],
   },
 
   /**
@@ -25,7 +33,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady(res) {
-    this.getRecommendList()
+    this.getWeekList()
   },
 
   /**
@@ -73,11 +81,20 @@ Page({
   /**
    * 获取番剧推荐
    */
-  getRecommendList() {
+  getWeekList() {
+    let _this = this
     wx.request({
-      url: 'https://api.clicli.top/posts/both?status=public&type=tuijian&page=1&pageSize=20',
+      url: 'https://www.clicli.top/week/',
       success(res) {
         console.log(res.data)
+        _this.weekList = res.data.data
+        _this.Monday = res.data.data[0].content
+        _this.Tuesday = res.data.data[1].content
+        _this.Wednesday = res.data.data[2].content
+        _this.Thursday = res.data.data[3].content
+        _this.Friday = res.data.data[4].content
+        _this.Saturday = res.data.data[5].content
+        _this.Sunday = res.data.data[6].content
       }
     })
   }

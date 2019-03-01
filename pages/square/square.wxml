@@ -5,4 +5,14 @@
   <view class="search">
     <image src='/images/search.png'></image><input placeholder="搜索一下下*花又不会坏……" placeholder-class="placeholder" />
   </view>
+
+  <view class="week-bar">
+    <view class="Monday">一</view>
+    <view class="Tuesday">二</view>
+    <view class="Wednesday">三</view>
+    <view class="Thursday">四</view>
+    <view class="Friday">五</view>
+    <view class="Saturday">六</view>
+    <view class="Sunday">日</view>
+  </view>
 </view>

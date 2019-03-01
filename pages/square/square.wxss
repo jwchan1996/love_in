@@ -38,3 +38,38 @@ page {
   /* placeholder位置  */
   text-align: left;
 }
+
+/*
+* 周播表
+*/
+.week-bar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100rpx;
+}
+.Monday,
+.Tuesday,
+.Wednesday,
+.Thursday,
+.Friday,
+.Saturday,
+.Sunday{
+  width: 12.285vw;
+  text-align: center;
+  background-color: #fff;
+  height: 56rpx;
+  line-height: 56rpx;
+  border-radius: 40rpx;
+  margin: 0 1vw;
+}
+.Monday:hover,
+.Tuesday:hover,
+.Wednesday:hover,
+.Thursday:hover,
+.Friday:hover,
+.Saturday:hover,
+.Sunday:hover{
+  color: #fff;
+  background-color: #f2aa24;
+}
