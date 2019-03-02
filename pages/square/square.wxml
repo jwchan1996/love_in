@@ -15,4 +15,18 @@
     <view class="Saturday">六</view>
     <view class="Sunday">日</view>
   </view>
+
+  <view class="week-item-container">
+
+    <block wx:for="{{currentDay}}" wx:key="item.av" wx:for-item="item">
+      <view class="week-item">
+        <view class="load-bg">
+          <image class="bangumi-img" src='{{item.suo}}' mode="aspectFill"></image>
+        </view>
+        <view class="bangumi-name">{{item.title}}</view>
+      </view>
+    </block>
+
+  </view>     
+  
 </view>

@@ -20,6 +20,7 @@ Page({
     Friday: [],
     Saturday: [],
     Sunday: [],
+    currentDay: []
   },
 
   /**
@@ -95,7 +96,58 @@ Page({
         _this.Friday = res.data.data[4].content
         _this.Saturday = res.data.data[5].content
         _this.Sunday = res.data.data[6].content
+
+        //获取今天的番剧数据
+        _this.getCurrentDay()
       }
     })
+  },
+
+  /**
+   * 获取今天周几
+   */
+  getCurrentDay(){
+    let date = new Date();
+    let ddy = date.getDay();//获取存储当前日期
+    
+    switch(ddy){
+      case 1:
+        this.setData({
+          currentDay: this.Monday
+        })
+        break
+      case 2:
+        this.setData({
+          currentDay: this.Tuesday
+        })
+        break
+      case 3:
+        this.setData({
+          currentDay: this.Wednesday
+        })
+        break
+      case 4:
+        this.setData({
+          currentDay: this.Thursday
+        })
+        break
+      case 5:
+        this.setData({
+          currentDay: this.Friday
+        })
+        break
+      case 6:
+        this.setData({
+          currentDay: this.Saturday
+        })
+        break
+      case 7:
+        this.setData({
+          currentDay: this.Sunday
+        })
+        break
+      default:
+    }
+    
   }
 })
