@@ -48,7 +48,9 @@ page {
   align-items: center;
   height: 100rpx;
   color: #515151;
+  padding: 0 1vw;
 }
+.recommend,
 .Monday,
 .Tuesday,
 .Wednesday,
@@ -56,7 +58,7 @@ page {
 .Friday,
 .Saturday,
 .Sunday{
-  width: 12.285vw;
+  width: 10.25vw;
   text-align: center;
   background-color: #fff;
   height: 56rpx;
@@ -64,6 +66,7 @@ page {
   border-radius: 40rpx;
   margin: 0 1vw;
 }
+.recommend:hover,
 .Monday:hover,
 .Tuesday:hover,
 .Wednesday:hover,
@@ -81,7 +84,6 @@ page {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: center;
   flex-wrap: wrap;
 }
 .week-item{

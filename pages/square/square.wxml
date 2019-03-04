@@ -7,13 +7,14 @@
   </view>
 
   <view class="week-bar">
-    <view class="Monday">一</view>
-    <view class="Tuesday">二</view>
-    <view class="Wednesday">三</view>
-    <view class="Thursday">四</view>
-    <view class="Friday">五</view>
-    <view class="Saturday">六</view>
-    <view class="Sunday">日</view>
+    <view class="recommend" data-ddy="0" bindtap="getDayList">推荐</view>
+    <view class="Monday" data-ddy="1" bindtap="getDayList">一</view>
+    <view class="Tuesday" data-ddy="2" bindtap="getDayList">二</view>
+    <view class="Wednesday" data-ddy="3" bindtap="getDayList">三</view>
+    <view class="Thursday" data-ddy="4" bindtap="getDayList">四</view>
+    <view class="Friday" data-ddy="5" bindtap="getDayList">五</view>
+    <view class="Saturday" data-ddy="6" bindtap="getDayList">六</view>
+    <view class="Sunday" data-ddy="7" bindtap="getDayList">日</view>
   </view>
 
   <view class="week-item-container">

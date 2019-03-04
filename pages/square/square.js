@@ -20,7 +20,9 @@ Page({
     Friday: [],
     Saturday: [],
     Sunday: [],
-    currentDay: []
+    currentDay: [],
+    recommend: []
+    
   },
 
   /**
@@ -35,6 +37,8 @@ Page({
    */
   onReady(res) {
     this.getWeekList()
+    this.getRecommend()
+    this.getCurrentDay()
   },
 
   /**
@@ -98,56 +102,124 @@ Page({
         _this.Sunday = res.data.data[6].content
 
         //获取今天的番剧数据
-        _this.getCurrentDay()
+        // _this.getCurrentDay()
       }
     })
   },
 
   /**
-   * 获取今天周几
+   * 获取今天是周几
    */
   getCurrentDay(){
-    let date = new Date();
-    let ddy = date.getDay();//获取存储当前日期
-    
-    switch(ddy){
-      case 1:
+    let now = new Date()
+    let day = now.getDay()
+    console.log(day)
+  },
+
+  /**
+   * 获取点击的日更番剧
+   */
+  getDayList(e) {
+
+    let ddy = e.currentTarget.dataset.ddy
+
+    switch (ddy) {
+      case '0':
+        this.setData({
+          currentDay: this.recommend
+        })
+      case '1':
         this.setData({
           currentDay: this.Monday
         })
+        console.log("hhh")
         break
-      case 2:
+      case '2':
         this.setData({
           currentDay: this.Tuesday
         })
         break
-      case 3:
+      case '3':
         this.setData({
           currentDay: this.Wednesday
         })
         break
-      case 4:
+      case '4':
         this.setData({
           currentDay: this.Thursday
         })
         break
-      case 5:
+      case '5':
         this.setData({
           currentDay: this.Friday
         })
         break
-      case 6:
+      case '6':
         this.setData({
           currentDay: this.Saturday
         })
         break
-      case 7:
+      case '7':
         this.setData({
           currentDay: this.Sunday
         })
         break
       default:
     }
-    
-  }
+
+  },
+
+  /**
+   * 获取番剧推荐
+   */
+  getRecommend() {
+    let _this = this
+    wx.request({
+      url: 'https://api.clicli.top/posts/both?status=public&type=tuijian&page=1&pageSize=10',
+      success(res) {
+
+        console.log(res.data)
+
+        if(res.data.code == 201){
+          let posts = res.data.posts
+          let arr = Array()
+
+          for(let i=0;i<posts.length;i++){
+            console.log(posts[i].title)
+            _this.setData({
+              [recommend[i]]: posts[i]
+            })
+            // arr[i].title = posts[i].title
+            // arr[i].av = posts[i].id
+            // arr[i].suo = _this.getImgUrl(posts[i].content)
+          }
+          arr[0] = '666'
+          console.log(arr[0])
+
+         _this.setData({
+           recommend: arr
+         })
+
+        }else{
+          
+        }
+
+      }
+    })
+  },
+
+  /**
+   * 获取番剧封面
+   */
+  getImgUrl(content) {
+    if (content.indexOf('[suo]') !== -1) {
+      return 'background-image:url(' + content.split('[suo](')[1].split(')')[0] + ')'
+    } else {
+      if (content.indexOf('![](') !== -1) {
+        return 'background-image:url(' + content.split('](')[1].split(')')[0] + ')'
+      } else {
+        return 'background-image:url("https://b-ssl.duitang.com/uploads/item/201501/07/20150107202826_UXcuQ.gif")'
+      }
+    }
+  },
 })
