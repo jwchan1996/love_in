@@ -22,7 +22,7 @@
     <block wx:for="{{currentDay}}" wx:key="item.av" wx:for-item="item">
       <view class="week-item">
         <view class="load-bg">
-          <image class="bangumi-img" src='{{item.suo}}' mode="aspectFill"></image>
+          <image class="bangumi-img" wx:if="{{item.suo}}" src='{{item.suo}}' mode="aspectFill"></image>
         </view>
         <view class="bangumi-name">{{item.title}}</view>
       </view>

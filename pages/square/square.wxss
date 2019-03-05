@@ -99,7 +99,7 @@ page {
 .load-bg{
   width: 100%;
   height: 22.5vw;
-  background-image: url(https://ws1.sinaimg.cn/large/0065Zy9egy1g0extq9eyxj30e80e8q3t.jpg);
+  /* background-image: url(https://ws1.sinaimg.cn/large/0065Zy9egy1g0extq9eyxj30e80e8q3t.jpg); */
   background-position: center;
   background-size: contain; 
 }

@@ -22,7 +22,7 @@ Page({
     Sunday: [],
     currentDay: [],
     recommend: []
-    
+
   },
 
   /**
@@ -110,7 +110,7 @@ Page({
   /**
    * 获取今天是周几
    */
-  getCurrentDay(){
+  getCurrentDay() {
     let now = new Date()
     let day = now.getDay()
     console.log(day)
@@ -124,15 +124,14 @@ Page({
     let ddy = e.currentTarget.dataset.ddy
 
     switch (ddy) {
-      case '0':
+      case '0':   
         this.setData({
           currentDay: this.recommend
-        })
+        })      
       case '1':
         this.setData({
           currentDay: this.Monday
         })
-        console.log("hhh")
         break
       case '2':
         this.setData({
@@ -180,28 +179,30 @@ Page({
 
         console.log(res.data)
 
-        if(res.data.code == 201){
+        if (res.data.code == 201) {
           let posts = res.data.posts
-          let arr = Array()
+          let arr = []
 
-          for(let i=0;i<posts.length;i++){
-            console.log(posts[i].title)
-            _this.setData({
-              [recommend[i]]: posts[i]
-            })
-            // arr[i].title = posts[i].title
-            // arr[i].av = posts[i].id
-            // arr[i].suo = _this.getImgUrl(posts[i].content)
+          for (let i = 0; i < posts.length; i++) {
+            arr[i] = {
+              "title": posts[i].title,
+              "suo": _this.getImgUrl(posts[i].content),
+              "av": String(posts[i].id)
+            }
           }
-          arr[0] = '666'
-          console.log(arr[0])
 
-         _this.setData({
-           recommend: arr
-         })
+          _this.setData({
+            recommend: arr
+          })
+         
+          _this.setData({
+            currentDay: arr
+          })
 
-        }else{
-          
+          console.log(_this.currentDay)
+
+        } else {
+
         }
 
       }
@@ -213,12 +214,12 @@ Page({
    */
   getImgUrl(content) {
     if (content.indexOf('[suo]') !== -1) {
-      return 'background-image:url(' + content.split('[suo](')[1].split(')')[0] + ')'
+      return content.split('[suo](')[1].split(')')[0]
     } else {
       if (content.indexOf('![](') !== -1) {
-        return 'background-image:url(' + content.split('](')[1].split(')')[0] + ')'
+        return content.split('](')[1].split(')')[0]
       } else {
-        return 'background-image:url("https://b-ssl.duitang.com/uploads/item/201501/07/20150107202826_UXcuQ.gif")'
+        return "https://b-ssl.duitang.com/uploads/item/201501/07/20150107202826_UXcuQ.gif"
       }
     }
   },
