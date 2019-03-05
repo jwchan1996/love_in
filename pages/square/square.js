@@ -92,14 +92,14 @@ Page({
       url: 'https://www.clicli.top/week/',
       success(res) {
         console.log(res.data)
-        _this.weekList = res.data.data
-        _this.Monday = res.data.data[0].content
-        _this.Tuesday = res.data.data[1].content
-        _this.Wednesday = res.data.data[2].content
-        _this.Thursday = res.data.data[3].content
-        _this.Friday = res.data.data[4].content
-        _this.Saturday = res.data.data[5].content
-        _this.Sunday = res.data.data[6].content
+        _this.data.weekList = res.data.data
+        _this.data.Monday = res.data.data[0].content
+        _this.data.Tuesday = res.data.data[1].content
+        _this.data.Wednesday = res.data.data[2].content
+        _this.data.Thursday = res.data.data[3].content
+        _this.data.Friday = res.data.data[4].content
+        _this.data.Saturday = res.data.data[5].content
+        _this.data.Sunday = res.data.data[6].content
 
         //获取今天的番剧数据
         // _this.getCurrentDay()
@@ -126,41 +126,42 @@ Page({
     switch (ddy) {
       case '0':   
         this.setData({
-          currentDay: this.recommend
-        })      
+            currentDay: this.data.recommend
+        })  
+        break
       case '1':
         this.setData({
-          currentDay: this.Monday
+          currentDay: this.data.Monday
         })
         break
       case '2':
         this.setData({
-          currentDay: this.Tuesday
+          currentDay: this.data.Tuesday
         })
         break
       case '3':
         this.setData({
-          currentDay: this.Wednesday
+          currentDay: this.data.Wednesday
         })
         break
       case '4':
         this.setData({
-          currentDay: this.Thursday
+          currentDay: this.data.Thursday
         })
         break
       case '5':
         this.setData({
-          currentDay: this.Friday
+          currentDay: this.data.Friday
         })
         break
       case '6':
         this.setData({
-          currentDay: this.Saturday
+          currentDay: this.data.Saturday
         })
         break
       case '7':
         this.setData({
-          currentDay: this.Sunday
+          currentDay: this.data.Sunday
         })
         break
       default:
@@ -199,7 +200,7 @@ Page({
             currentDay: arr
           })
 
-          console.log(_this.currentDay)
+          console.log(_this.data.currentDay)
 
         } else {
 
