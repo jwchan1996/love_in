@@ -21,8 +21,9 @@ Page({
     Saturday: [],
     Sunday: [],
     currentDay: [],
-    recommend: []
-
+    recommend: [],
+    //选定日更tap标志
+    currentTap: 0
   },
 
   /**
@@ -126,41 +127,49 @@ Page({
     switch (ddy) {
       case '0':   
         this.setData({
-            currentDay: this.data.recommend
+          currentTap: 0, 
+          currentDay: this.data.recommend
         })  
         break
       case '1':
         this.setData({
+          currentTap: 1, 
           currentDay: this.data.Monday
         })
         break
       case '2':
         this.setData({
+          currentTap: 2, 
           currentDay: this.data.Tuesday
         })
         break
       case '3':
         this.setData({
+          currentTap: 3, 
           currentDay: this.data.Wednesday
         })
         break
       case '4':
         this.setData({
+          currentTap: 4, 
           currentDay: this.data.Thursday
         })
         break
       case '5':
         this.setData({
+          currentTap: 5, 
           currentDay: this.data.Friday
         })
         break
       case '6':
         this.setData({
+          currentTap: 6, 
           currentDay: this.data.Saturday
         })
         break
       case '7':
         this.setData({
+          currentTap: 7, 
           currentDay: this.data.Sunday
         })
         break

@@ -66,17 +66,6 @@ page {
   border-radius: 40rpx;
   margin: 0 1vw;
 }
-.recommend:hover,
-.Monday:hover,
-.Tuesday:hover,
-.Wednesday:hover,
-.Thursday:hover,
-.Friday:hover,
-.Saturday:hover,
-.Sunday:hover{
-  color: #fff;
-  background-color: #f2aa24;
-}
 
 .week-item-container{
   height: auto;
