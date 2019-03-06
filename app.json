@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/mine/mine",
     "pages/square/square",
-    "pages/index/site/site"
+    "pages/index/site/site",
+    "pages/square/play/play"
   ],
   "window":{
     "backgroundTextStyle":"light",
