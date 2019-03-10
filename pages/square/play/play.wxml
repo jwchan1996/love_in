@@ -1,2 +1,1 @@
-<!--pages/square/play/play.wxml-->
-<text>pages/square/play/play.wxml</text>
+<navbar back text="{{navigationBarTitle}}"></navbar>

@@ -233,4 +233,13 @@ Page({
       }
     }
   },
+
+  /**
+   * 跳转播放页面
+   */
+  playVideo(){
+    wx.navigateTo({
+      url: './play/play',
+    })
+  }
 })
