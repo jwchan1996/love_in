@@ -14,6 +14,7 @@ Page({
   data: {
     navigationBarHeight: navigationBarHeight,
     src: '',
+    videoList: [],
     danmuList: [
       {
         text: '第 1s 出现的弹幕',
@@ -39,6 +40,7 @@ Page({
    */
   onReady: function () {
     this.videoContext = wx.createVideoContext('myVideo')
+    this.getVideoList()
   },
 
   /**
@@ -83,6 +85,30 @@ Page({
 
   },
 
+  /**
+   * 获取番剧列表
+   */
+  getVideoList(){
+    const that = this
+    wx.request({
+      url: 'https://api.clicli.top/videos?pid=712&page=1&pageSize=150',
+      success(res){
+        that.setData({
+          videoList: res.data.videos,
+          src: res.data.videos[0].content
+        }) 
+        console.log(res.data)
+      }
+    })
+  },
+
+  /**
+   * 获取视频解析
+   */
+  getRealUrl(){
+    
+  },
+
   bindInputBlur(e) {
     this.inputValue = e.detail.value
   },
@@ -105,7 +131,7 @@ Page({
       color: getRandomColor()
     })
   }
-  
+
 })
 
 function getRandomColor() {
