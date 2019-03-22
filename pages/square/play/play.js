@@ -91,7 +91,7 @@ Page({
   getVideoList(){
     const that = this
     wx.request({
-      url: 'https://api.clicli.top/videos?pid=712&page=1&pageSize=150',
+      url: 'https://api.clicli.top/videos?pid=328&page=1&pageSize=150',
       success(res){
         that.setData({
           videoList: res.data.videos,
