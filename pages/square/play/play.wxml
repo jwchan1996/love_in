@@ -14,10 +14,8 @@
     <button bindtap="bindSendDanmu">发送弹幕</button>
   </view>
 </view>
-<!-- 列表 -->
-<scroll-view class="scroll-view_H" scroll-x style="width: 100%;background-color:red;height:40px;">
-  <view id="green" class="scroll-view-item_H bc_green">111</view>
-  <view id="red" class="scroll-view-item_H bc_red">222</view>
-  <view id="yellow" class="scroll-view-item_H bc_yellow">333</view>
-  <view id="blue" class="scroll-view-item_H bc_blue">444</view>
-</scroll-view>
+
+<!-- 引入模板 -->
+<import src="/wxParse/wxParse.wxml"/>
+<!-- 这里data中article为bindName -->
+<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
