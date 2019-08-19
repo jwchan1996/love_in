@@ -11,7 +11,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.1",
+	"libVersion": "2.6.2",
 	"appid": "wxa56553d1849d08b5",
 	"projectname": "Love_Lin",
 	"debugOptions": {
@@ -45,9 +45,11 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "番剧",
-					"pathName": "pages/square/square"
+					"pathName": "pages/square/play/play",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

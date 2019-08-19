@@ -1,2 +1,21 @@
-<!--pages/square/play/play.wxml-->
-<text>pages/square/play/play.wxml</text>
+<navbar back text="{{navigationBarTitle}}"></navbar>
+<view class="section tc" style="{{'padding-top:' + navigationBarHeight}}">
+  <video
+    id="myVideo"
+    src="{{src}}"
+    danmu-list="{{danmuList}}"
+    enable-danmu
+    danmu-btn
+    controls
+  style='width:100vw'></video>
+  <view class="btn-area">
+    <button bindtap="bindButtonTap">获取视频</button>
+    <input bindblur="bindInputBlur" />
+    <button bindtap="bindSendDanmu">发送弹幕</button>
+  </view>
+</view>
+
+<!-- 引入模板 -->
+<import src="/wxParse/wxParse.wxml"/>
+<!-- 这里data中article为bindName -->
+<template is="wxParse" data="{{wxParseData:article.nodes}}"/>

@@ -20,8 +20,9 @@ page {
   border-top-left-radius: 40rpx;
   border-bottom-left-radius: 40rpx;
 }
-.search input{
-  height: 40rpx;
+.search view{
+  height: 54rpx;
+  line-height: 54rpx;
   width: 70vw;
   background-color: #FEFEFE;
   border-top-right-radius: 40rpx;

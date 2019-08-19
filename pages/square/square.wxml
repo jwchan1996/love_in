@@ -3,7 +3,7 @@
 <view class="container" style="{{'padding-top:' + navigationBarHeight}}">
   <slide-swiper></slide-swiper>
   <view class="search">
-    <image src='/images/search.png'></image><input placeholder="搜索一下下*花又不会坏……" placeholder-class="placeholder" />
+    <image src='/images/search.png'></image><view>搜索一下下*花又不会坏……</view>
   </view>
 
   <view class="week-bar">

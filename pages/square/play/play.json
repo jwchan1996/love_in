@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "navigationBarTextStyle": "white",
+  "backgroundColor": "#009688",
+  "usingComponents": {
+    "navbar": "/components/navbar_left/navbar"
+  },
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50
 }
