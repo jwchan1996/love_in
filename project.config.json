@@ -47,7 +47,7 @@
 				{
 					"id": 1,
 					"name": "番剧",
-					"pathName": "pages/square/play/play",
+					"pathName": "pages/square/square",
 					"query": "",
 					"scene": null
 				}

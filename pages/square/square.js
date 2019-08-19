@@ -217,8 +217,6 @@ Page({
 
         wx.hideLoading()
 
-        console.log(res.data)
-
         if (res.data.code == 200) {
           let posts = res.data.posts
           let arr = []
@@ -267,9 +265,10 @@ Page({
   /**
    * 跳转播放页面
    */
-  playVideo(){
+  playVideo(av) {
     wx.navigateTo({
       url: './play/play',
     })
   }
+  
 })
