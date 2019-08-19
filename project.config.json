@@ -54,10 +54,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 2,
 					"name": "视频列表",
 					"pathName": "pages/square/play/play",
-					"query": "av=1004",
+					"query": "av=1004&title=一拳超人",
 					"scene": null
 				}
 			]

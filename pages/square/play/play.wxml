@@ -1,4 +1,4 @@
-<navbar back text="{{navigationBarTitle}}"></navbar>
+<navbar back home text="{{navigationBarTitle}}"></navbar>
 <view class="section tc" style="{{'padding-top:' + navigationBarHeight}}">
   <video
     id="myVideo"
@@ -7,7 +7,7 @@
     enable-danmu
     danmu-btn
     controls
-  style='width:100vw'></video>
+  style='width:100vw;height:calc(100vw*9/16)'></video>
   <view class="btn-area">
     <input class="danmu-input" bindblur="bindInputBlur" placeholder="说点什么吧~" />
     <view class="danmu-button" bindtap="bindSendDanmu">发射</view>

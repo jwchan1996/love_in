@@ -12,6 +12,7 @@ Page({
    */
   data: {
     navigationBarHeight: navigationBarHeight,
+    navigationBarTitle: '',
     av: null,
     src: '',
     videoList: [],
@@ -33,7 +34,8 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      av: options.av
+      av: options.av,
+      navigationBarTitle: options.title
     })
   },
 
@@ -105,6 +107,11 @@ Page({
    * 获取视频列表
    */
   getVideoList() {
+
+    wx.showLoading({
+      title: '加载中…',
+    })
+
     wx.request({
       url: `https://api.clicli.us/videos?pid=${this.data.av}&page=1&pageSize=150`,
       success: res => {
@@ -114,6 +121,8 @@ Page({
         this.setData({
           videoList: res.data.videos
         })
+
+        wx.hideLoading()
 
         // let content = ''
         // res.data.videos.forEach(item => {
