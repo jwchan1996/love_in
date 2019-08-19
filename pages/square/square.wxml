@@ -52,7 +52,7 @@
   <view class="week-item-container">
 
     <block wx:for="{{currentPostData}}" wx:key="item.av" wx:for-item="item">
-      <view class="week-item" bindtap='playVideo'>
+      <view class="week-item" data-av="{{item.av}}" bindtap='playVideo'>
         <view class="load-bg">
           <image class="bangumi-img" wx:if="{{item.suo}}" src='{{item.suo}}' mode="aspectFill"></image>
         </view>

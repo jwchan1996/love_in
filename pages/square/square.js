@@ -265,10 +265,11 @@ Page({
   /**
    * 跳转播放页面
    */
-  playVideo(av) {
+  playVideo(e) {
+    let av = e.currentTarget.dataset.av
     wx.navigateTo({
-      url: './play/play',
+      url: `./play/play?av=${av}`,
     })
   }
-  
+
 })

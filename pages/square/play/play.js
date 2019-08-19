@@ -1,4 +1,3 @@
-// pages/square/play/play.js
 //获取应用实例
 const app = getApp()
 //自定义导航条高度
@@ -13,6 +12,7 @@ Page({
    */
   data: {
     navigationBarHeight: navigationBarHeight,
+    av: null,
     src: '',
     videoList: [],
     danmuList: [
@@ -32,7 +32,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      av: options.av
+    })
   },
 
   /**
@@ -103,15 +105,22 @@ Page({
    * 获取番剧列表
    */
   getVideoList(){
-    const that = this
     wx.request({
-      url: 'https://api.clicli.top/videos?pid=328&page=1&pageSize=150',
-      success(res){
-        that.setData({
-          videoList: res.data.videos,
-          src: res.data.videos[0].content
-        }) 
-        console.log(res.data)
+      url: `https://api.clicli.us/videos?pid=${this.data.av}&page=1&pageSize=150`,
+      success: res => {
+
+        this.setData({
+          videoList: res.data.videos
+        })
+
+        let content = ''
+        res.data.videos.forEach(item => {
+          if(item.oid == 1){
+            content = item.content
+          }
+        })
+
+        this.getRealUrl(content)
       }
     })
   },
@@ -119,7 +128,18 @@ Page({
   /**
    * 获取视频解析
    */
-  getRealUrl(){
+  getRealUrl(url){
+    console.log(url)
+    wx.request({
+      url: `https://jx.clicli.us/jx?url=${url}`,
+      success: res => {
+        console.log(res.data)
+        this.setData({
+          src: res.data.url
+        }) 
+        console.log(this.data.src)
+      }
+    })
     
   },
 
