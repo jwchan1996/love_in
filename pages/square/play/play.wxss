@@ -1,0 +1,47 @@
+.section{
+  position: fixed;
+  background-color: #ffffff;
+  padding-bottom: 6px;
+}
+
+.btn-area{
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.danmu-input{
+  width: 70vw;
+  height: 30px;
+  background-color: #f8f8f8;
+  padding: 4px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.danmu-button{
+  width: 20vw;
+  height: 38px;
+  line-height: 38px;
+  margin: 0;
+  text-align: center;
+  background-color: #009688;
+  color: #ffffff;
+}
+
+.video-list{
+  padding: calc(104px + 100vw*9/16) 20px 20px 20px;
+}
+
+.video-item{
+  border: 1px solid #009688; 
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin: 10px 0;
+}
+
+.video-item:active{
+  background-color: #ececec;
+}
