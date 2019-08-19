@@ -12,7 +12,8 @@ Page({
     //导航条标题
     navigationBarTitle: '热门新番',
     navigationBarHeight: navigationBarHeight,
-    weekList: [],
+    //每个tap对应的数据
+    recommend: [],
     Monday: [],
     Tuesday: [],
     Wednesday: [],
@@ -20,8 +21,8 @@ Page({
     Friday: [],
     Saturday: [],
     Sunday: [],
-    currentDay: [],
-    recommend: [],
+    //当前选中的番剧数据
+    currentPostData: [],
     //选定日更tap标志
     currentTap: 0
   },
@@ -37,9 +38,10 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady(res) {
+    //获取日更表
     this.getWeekList()
+    //获取推荐
     this.getRecommend()
-    this.getCurrentDay()
   },
 
   /**
@@ -85,36 +87,58 @@ Page({
   },
 
   /**
-   * 获取番剧推荐
+   * 获取番剧更新表
    */
   getWeekList() {
-    let _this = this
     wx.request({
-      url: 'https://www.clicli.top/week/',
-      success(res) {
-        console.log(res.data)
-        _this.data.weekList = res.data.data
-        _this.data.Monday = res.data.data[0].content
-        _this.data.Tuesday = res.data.data[1].content
-        _this.data.Wednesday = res.data.data[2].content
-        _this.data.Thursday = res.data.data[3].content
-        _this.data.Friday = res.data.data[4].content
-        _this.data.Saturday = res.data.data[5].content
-        _this.data.Sunday = res.data.data[6].content
+      url: 'https://api.clicli.us/posts?status=nowait&sort=新番&page=1&pageSize=100',
+      success: res => {
 
-        //获取今天的番剧数据
-        // _this.getCurrentDay()
+        if (res.data.code == 200) {
+
+          let posts = res.data.posts
+          let arr = []
+
+          for (let i = 0; i < posts.length; i++) {
+            arr[i] = {
+              "title": posts[i].title,
+              "suo": this.getImgUrl(posts[i].content),
+              "av": String(posts[i].id),
+              "time": posts[i].time
+            }
+          }
+
+          let ret = {
+            1: [],
+            2: [],
+            3: [],
+            4: [],
+            5: [],
+            6: [],
+            7: [],
+          }
+          arr.forEach(item => {
+            let day = new Date(item.time).getDay() + 1
+            ret[day].push(item)
+          })
+
+          this.data.weekList = ret
+          this.data.Monday = ret[1]
+          this.data.Tuesday = ret[2]
+          this.data.Wednesday = ret[3]
+          this.data.Thursday = ret[4]
+          this.data.Friday = ret[5]
+          this.data.Saturday = ret[6]
+          this.data.Sunday = ret[7]
+
+        }else{
+
+          
+
+        }
+
       }
     })
-  },
-
-  /**
-   * 获取今天是周几
-   */
-  getCurrentDay() {
-    let now = new Date()
-    let day = now.getDay()
-    console.log(day)
   },
 
   /**
@@ -128,49 +152,49 @@ Page({
       case '0':   
         this.setData({
           currentTap: 0, 
-          currentDay: this.data.recommend
+          currentPostData: this.data.recommend
         })  
         break
       case '1':
         this.setData({
           currentTap: 1, 
-          currentDay: this.data.Monday
+          currentPostData: this.data.Monday
         })
         break
       case '2':
         this.setData({
           currentTap: 2, 
-          currentDay: this.data.Tuesday
+          currentPostData: this.data.Tuesday
         })
         break
       case '3':
         this.setData({
           currentTap: 3, 
-          currentDay: this.data.Wednesday
+          currentPostData: this.data.Wednesday
         })
         break
       case '4':
         this.setData({
           currentTap: 4, 
-          currentDay: this.data.Thursday
+          currentPostData: this.data.Thursday
         })
         break
       case '5':
         this.setData({
           currentTap: 5, 
-          currentDay: this.data.Friday
+          currentPostData: this.data.Friday
         })
         break
       case '6':
         this.setData({
           currentTap: 6, 
-          currentDay: this.data.Saturday
+          currentPostData: this.data.Saturday
         })
         break
       case '7':
         this.setData({
           currentTap: 7, 
-          currentDay: this.data.Sunday
+          currentPostData: this.data.Sunday
         })
         break
       default:
@@ -182,37 +206,43 @@ Page({
    * 获取番剧推荐
    */
   getRecommend() {
-    let _this = this
+    
+    wx.showLoading({
+      title: '加载中',
+    })
+
     wx.request({
-      url: 'https://api.clicli.top/posts/both?status=public&type=tuijian&page=1&pageSize=10',
-      success(res) {
+      url: 'https://api.clicli.us/posts?status=public&sort=&tag=推荐&uid=&page=1&pageSize=8',
+      success: res => {
+
+        wx.hideLoading()
 
         console.log(res.data)
 
-        if (res.data.code == 201) {
+        if (res.data.code == 200) {
           let posts = res.data.posts
           let arr = []
 
           for (let i = 0; i < posts.length; i++) {
             arr[i] = {
               "title": posts[i].title,
-              "suo": _this.getImgUrl(posts[i].content),
-              "av": String(posts[i].id)
+              "suo": this.getImgUrl(posts[i].content),
+              "av": String(posts[i].id),
+              "time": posts[i].time
             }
           }
 
-          _this.setData({
+          this.setData({
             recommend: arr
           })
-         
-          _this.setData({
-            currentDay: arr
-          })
 
-          console.log(_this.data.currentDay)
+          this.setData({
+            currentTap: 0,
+            currentPostData: arr
+          })  
 
         } else {
-
+          
         }
 
       }
