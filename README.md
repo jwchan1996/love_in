@@ -1,7 +1,7 @@
-# Love_Lin
+# love_in
 :dog: This is a miniprogram which to display the photos from tuchong.
 
-#### Love_Lin
+#### love_in
 🎨 情林  
 
 微信小程序
