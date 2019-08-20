@@ -16,6 +16,7 @@ Page({
     av: null,
     src: '',
     videoList: [],
+    checkedId: null,
     danmuList: [{
         text: '第 1s 出现的弹幕',
         color: '#ff0000',
@@ -45,20 +46,6 @@ Page({
   onReady: function() {
     this.videoContext = wx.createVideoContext('myVideo')
     this.getVideoList()
-
-    let WxParse = require('../../../wxParse/wxParse.js')
-
-    let article = '![suo](http://wx4.sinaimg.cn/mw690/0060lm7Tly1fz3nlb1njaj30u016gn54.jpg)↵幼年丧母的高中男生・藤井夏生，默默暗恋着高中老师・橘阳菜。↵无法实现的思念涌入心中，突然被邀请参加联谊的夏生，与在那里遇到的橘瑠衣一起进行了首次体验。↵这时，父亲打算再婚。作为父亲再婚对象出现在夏生面前的，是阳菜和瑠衣……↵在同一屋檐下生活的3个人，形成了禁断的三角关系。';
-    /**
-     * WxParse.wxParse(bindName , type, data, target,imagePadding)
-     * 1.bindName绑定的数据名(必填)
-     * 2.type可以为html或者md(必填)
-     * 3.data为传入的具体数据(必填)
-     * 4.target为Page对象,一般为this(必填)
-     * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
-     */
-    let that = this;
-    WxParse.wxParse('article', 'md', article, that, 5);
   },
 
   /**
@@ -156,6 +143,8 @@ Page({
 
         wx.hideLoading()
 
+        this.videoContext.play()
+
         console.log(this.data.src)
       }
     })
@@ -169,6 +158,11 @@ Page({
     let url = e.currentTarget.dataset.content
     console.log(url)
     this.getRealUrl(url)
+    this.videoContext.pause()
+    //添加选中样式
+    this.setData({
+      checkedId: e.currentTarget.dataset.id
+    })
   },
 
   bindInputBlur(e) {

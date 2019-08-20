@@ -18,7 +18,7 @@
 <view class="video-list">
 
   <block wx:for="{{videoList}}" wx:key="item.id" wx:for-item="item">
-    <view class="video-item" data-content="{{item.content}}" bindtap="play">
+    <view class="{{checkedId == item.id ? 'video-item checked' : 'video-item'}}" data-id="{{item.id}}" data-content="{{item.content}}" bindtap="play">
       <text>第{{item.oid}}话</text>
       <text> {{item.title}}</text>
     </view>

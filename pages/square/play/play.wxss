@@ -45,3 +45,7 @@
 .video-item:active{
   background-color: #ececec;
 }
+
+.checked{
+  background-color: #ececec;
+}
