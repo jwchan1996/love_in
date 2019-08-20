@@ -15,6 +15,7 @@ Page({
     navigationBarTitle: '',
     av: null,
     src: '',
+    videoTitle: '',
     videoList: [],
     checkedId: null,
     danmuList: [{
@@ -155,13 +156,14 @@ Page({
    * 播放当前视频
    */
   play(e) {
-    let url = e.currentTarget.dataset.content
-    console.log(url)
-    this.getRealUrl(url)
+    //获取视频直链
+    this.getRealUrl(e.currentTarget.dataset.content)
+    //暂停视频
     this.videoContext.pause()
-    //添加选中样式
+    //添加选中样式，设置video全屏title
     this.setData({
-      checkedId: e.currentTarget.dataset.id
+      checkedId: e.currentTarget.dataset.id,
+      videoTitle: e.currentTarget.dataset.title
     })
   },
 

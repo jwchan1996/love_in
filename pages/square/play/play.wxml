@@ -7,7 +7,10 @@
     enable-danmu
     danmu-btn
     controls
-  style='width:100vw;height:calc(100vw*9/16)'></video>
+    style='width:100vw;height:calc(100vw*9/16)'
+    title="{{videoTitle}}"
+  >
+  </video>
   <view class="btn-area">
     <input class="danmu-input" bindblur="bindInputBlur" placeholder="说点什么吧~" />
     <view class="danmu-button" bindtap="bindSendDanmu">发射</view>
@@ -18,15 +21,10 @@
 <view class="video-list">
 
   <block wx:for="{{videoList}}" wx:key="item.id" wx:for-item="item">
-    <view class="{{checkedId == item.id ? 'video-item checked' : 'video-item'}}" data-id="{{item.id}}" data-content="{{item.content}}" bindtap="play">
+    <view class="{{checkedId == item.id ? 'video-item checked' : 'video-item'}}" data-id="{{item.id}}" data-title="{{item.title}}" data-content="{{item.content}}" bindtap="play">
       <text>第{{item.oid}}话</text>
       <text> {{item.title}}</text>
     </view>
   </block>
 
 </view>
-
-<!-- 引入模板 -->
-<!-- <import src="/wxParse/wxParse.wxml"/> -->
-<!-- 这里data中article为bindName -->
-<!-- <template is="wxParse" data="{{wxParseData:article.nodes}}"/> -->
