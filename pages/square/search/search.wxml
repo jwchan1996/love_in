@@ -1,0 +1,19 @@
+<navbar back home text="{{navigationBarTitle}}"></navbar>
+
+<view class="container" style="{{'padding-top:' + navigationBarHeight}}">
+
+  <block wx:for="{{postList}}" wx:key="item.av" wx:for-item="item">
+    <view class="post-item" data-av="{{item.av}}" data-title="{{item.title}}" bindtap='playVideo'>
+      <view class="load-bg">
+        <image class="bangumi-img" wx:if="{{item.suo}}" src='{{item.suo}}' mode="aspectFill"></image>
+      </view>
+      <view class="bangumi-name">{{item.title}}</view>
+    </view>
+  </block>
+
+  <view wx:if='{{postList.length == 0 && httpCompleted == 1}}' class='no-data'>
+    <image src='/images/tips.png'></image>
+    <text>什么都没，太难了</text>
+  </view>
+
+</view>

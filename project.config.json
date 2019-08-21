@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -58,6 +58,13 @@
 					"name": "视频列表",
 					"pathName": "pages/square/play/play",
 					"query": "av=1004&title=一拳超人",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "搜索结果",
+					"pathName": "pages/square/search/search",
+					"query": "keywords=超人",
 					"scene": null
 				}
 			]

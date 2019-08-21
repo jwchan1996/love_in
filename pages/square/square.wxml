@@ -2,8 +2,8 @@
 <nav-bar text="{{navigationBarTitle}}"></nav-bar>
 <view class="container" style="{{'padding-top:' + navigationBarHeight}}">
   <view class="search">
-    <input placeholder='搜索一下呗……'></input>
-    <image src='/images/search.png'></image>
+    <input confirm-type="search" bindinput="watchSearchInput" bindconfirm="bindconfirm" placeholder='搜索一下呗……'></input>
+    <image src='/images/search.png' bindtap='search'></image>
   </view>
 
   <view class="week-bar">

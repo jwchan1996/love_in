@@ -24,7 +24,9 @@ Page({
     //当前选中的番剧数据
     currentPostData: [],
     //选定日更tap标志
-    currentTap: 0
+    currentTap: 0,
+    //搜索框的值
+    searchKey: ''
   },
 
   /**
@@ -271,6 +273,35 @@ Page({
     wx.navigateTo({
       url: `./play/play?av=${av}&title=${title}`,
     })
+  },
+
+  /**
+   * 监听搜索框的值
+   */
+  watchSearchInput(e){
+    this.setData({
+      searchKey: e.detail.value
+    })
+  },
+
+  /**
+   * 搜索番剧
+   */
+  search(){
+    let keywords = this.data.searchKey
+    if(!keywords){
+      return
+    }
+    wx.navigateTo({
+      url: `./search/search?keywords=${keywords}`
+    })
+  },
+
+  /**
+   * 监听手机键盘搜索键
+   */
+  bindconfirm(){
+    this.search()
   }
 
 })
