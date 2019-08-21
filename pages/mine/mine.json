@@ -1,5 +1,6 @@
 {
   "navigationBarTextStyle": "white",
+  "navigationStyle": "custom",
   "usingComponents": {
     "nav-bar": "/components/navbar_left/navbar"
   }

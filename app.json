@@ -4,14 +4,14 @@
     "pages/mine/mine",
     "pages/square/square",
     "pages/index/site/site",
-    "pages/square/play/play"
+    "pages/square/play/play",
+    "pages/square/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#bfbfbf",
