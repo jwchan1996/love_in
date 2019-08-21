@@ -10,7 +10,7 @@ Page({
    */
   data: {
     //导航条标题
-    navigationBarTitle: '热门新番',
+    navigationBarTitle: '二次元',
     navigationBarHeight: navigationBarHeight,
     //每个tap对应的数据
     recommend: [],
@@ -212,7 +212,7 @@ Page({
     })
 
     wx.request({
-      url: 'https://api.clicli.us/posts?status=public&sort=&tag=推荐&uid=&page=1&pageSize=8',
+      url: 'https://api.clicli.us/posts?status=public&sort=&tag=推荐&uid=&page=1&pageSize=12',
       success: res => {
 
         wx.hideLoading()
@@ -267,8 +267,9 @@ Page({
    */
   playVideo(e) {
     let av = e.currentTarget.dataset.av
+    let title = e.currentTarget.dataset.title
     wx.navigateTo({
-      url: `./play/play?av=${av}`,
+      url: `./play/play?av=${av}&title=${title}`,
     })
   }
 

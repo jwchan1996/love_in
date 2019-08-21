@@ -1,7 +1,6 @@
 {
   "navigationBarTextStyle": "white",
   "usingComponents": {
-    "nav-bar": "/components/navbar_left/navbar",
-    "slide-swiper": "/components/slide-swiper/slide-swiper"
+    "nav-bar": "/components/navbar_left/navbar"
   }
 }

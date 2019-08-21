@@ -1,9 +1,9 @@
 <!--index.wxml-->
 <nav-bar text="{{navigationBarTitle}}"></nav-bar>
 <view class="container" style="{{'padding-top:' + navigationBarHeight}}">
-  <slide-swiper></slide-swiper>
   <view class="search">
-    <image src='/images/search.png'></image><view>搜索一下下*花又不会坏……</view>
+    <input placeholder='搜索一下呗……'></input>
+    <image src='/images/search.png'></image>
   </view>
 
   <view class="week-bar">

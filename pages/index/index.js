@@ -16,8 +16,7 @@ Page({
    */
   data: {
     //导航条标题
-    // navigationBarTitle: '情之林',
-    navigationBarTitle: '推荐',
+    navigationBarTitle: '图虫',
     navigationBarHeight: navigationBarHeight,
     //是否有更多数据标志位
     more: true,
