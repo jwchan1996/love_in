@@ -47,6 +47,8 @@ Page({
   onReady: function() {
     this.videoContext = wx.createVideoContext('myVideo')
     this.getVideoList()
+    //增加浏览量
+    this.getPostPv()
   },
 
   /**
@@ -150,6 +152,19 @@ Page({
       }
     })
 
+  },
+
+  /**
+   * 增加浏览量
+   */
+  getPostPv(){
+    let av = this.data.av
+    wx.request({
+      url: `https://jx.clicli.us/get/pv?pid=${av}`,
+      success: res => {
+        console.log(res.data)
+      }
+    })
   },
 
   /**
