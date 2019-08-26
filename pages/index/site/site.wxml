@@ -1,5 +1,5 @@
 <!--pages/index/site/site.wxml-->
-<navbar back text="{{navigationBarTitle}}"></navbar>
+<navbar back home text="{{navigationBarTitle}}"></navbar>
 <view class="container" style="{{'padding-top:' + navigationBarHeight}}">
   <view class='site-box'>
     <view class='site-header'>
