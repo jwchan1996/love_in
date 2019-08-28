@@ -5,8 +5,6 @@ const navigationBarHeight = (app.statusBarHeight + 44) + 'px'
 
 Page({
 
-  inputValue: '',
-
   /**
    * 页面的初始数据
    */
@@ -17,7 +15,7 @@ Page({
     src: '',
     videoTitle: '',
     videoList: [],
-    checkedId: null,
+    checkedVid: null,
     danmuList: [{
         text: '第 1s 出现的弹幕',
         color: '#ff0000',
@@ -28,7 +26,9 @@ Page({
         color: '#ff00ff',
         time: 3
       }
-    ]
+    ],
+    currentTime: 0,
+    inputValue: ''
   },
 
   /**
@@ -45,7 +45,9 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
+    //获取播放器对象
     this.videoContext = wx.createVideoContext('myVideo')
+    //获取视频列表
     this.getVideoList()
     //增加浏览量
     this.getPostPv()
@@ -175,21 +177,104 @@ Page({
     this.getRealUrl(e.currentTarget.dataset.content)
     //暂停视频
     this.videoContext.pause()
-    //添加选中样式，设置video全屏title
+    //设置选中的视频di，添加选中样式，设置video全屏title
     this.setData({
-      checkedId: e.currentTarget.dataset.id,
+      checkedVid: e.currentTarget.dataset.id,
       videoTitle: e.currentTarget.dataset.title
+    })
+    //获取当前视频的弹幕列表
+    this.getDanMuKu(e.currentTarget.dataset.id)
+  },
+
+  /**
+   * 获取当前视频的弹幕列表
+   */
+  getDanMuKu(vid){
+    wx.request({
+      url: `https://api.clicli.us/comments?vid=${vid}&page=1&pageSize=200`,
+      success: res => {
+
+        console.log(res.data)
+        let danmuList = this.forDanmu(res.data.comments)
+        this.setData({
+          danmuList
+        })
+      
+      },
     })
   },
 
-  bindInputBlur(e) {
-    this.inputValue = e.detail.value
+  /**
+   * 解析组装弹幕
+   */
+  forDanmu(arr) {
+    let out = []
+    for (let i in arr) {
+      let res = {}
+      res['text'] = arr[i]['content']
+      res['time'] = arr[i]['time']
+      res['color'] = arr[i]['color']
+      out[i] = res
+    }
+    return out
   },
 
+  bindInputBlur(e) {
+    this.setData({
+      inputValue: e.detail.value
+    })
+  },
+
+  /**
+   * 发送弹幕
+   */
   bindSendDanmu() {
+    //获取随机弹幕颜色
+    let danMuColor = getRandomColor()
+    console.log(danMuColor)
+    console.log(this.data.inputValue)
+    //播放器显示
     this.videoContext.sendDanmu({
-      text: this.inputValue,
-      color: getRandomColor()
+      text: this.data.inputValue,
+      color: danMuColor
+    })
+    //获取当前弹幕在视频的秒数
+    console.log(this.data.currentTime)
+    let time = Math.round(this.data.currentTime)
+    console.log(time)
+    wx.request({
+      url: `https://api.clicli.us/comment/add`,
+      method: "POST",
+      data: {
+        content: this.data.inputValue,
+        pid: parseInt(this.data.av),
+        uid: parseInt(200),
+        vid: parseInt(this.data.checkedVid) ? parseInt(this.data.checkedVid) : 1,
+        color: danMuColor ? danMuColor : '#fff',
+        tuid: 0,
+        time: time ? time : 0
+      },
+      header: {
+        "content-type": 'application/json; charset=utf-8',
+        "cookie": "__cfduid=ddacd84b3f0f34f0f18d348ee112439ac1559204920; token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImV4cCI6MTU2Njk2Mjk4NiwiaWF0IjpudWxsLCJpc3MiOm51bGwsImp0aSI6bnVsbCwibGV2ZWwiOjQsIm5iZiI6bnVsbCwic3ViIjpudWxsfQ.BxF2GrnEJt5QS20Mmm5LjCEGdGWd5Jmx_ymZgd-XrmM; uqq=741755613; uid=200; level=4" 
+      },
+      success: res => {
+        console.log(res.data)
+      },
+      complete: res => {
+        this.setData({
+          inputValue: ''
+        })
+      }
+    })
+  },
+
+  /**
+   * 监听视频播放进度
+   */
+  bindTimeUpdate(e){
+    this.setData({
+      currentTime: e.detail.currentTime
     })
   }
 

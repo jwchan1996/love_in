@@ -9,10 +9,11 @@
     controls
     style='width:100vw;height:calc(100vw*9/16)'
     title="{{videoTitle}}"
+    bindtimeupdate="bindTimeUpdate"
   >
   </video>
   <view class="btn-area">
-    <input class="danmu-input" bindblur="bindInputBlur" placeholder="说点什么吧~" />
+    <input class="danmu-input" value="{{inputValue}}" bindblur="bindInputBlur" placeholder="说点什么吧~" />
     <view class="danmu-button" bindtap="bindSendDanmu">发射</view>
   </view>
 </view>
