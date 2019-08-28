@@ -13,7 +13,7 @@
   >
   </video>
   <view class="btn-area">
-    <input class="danmu-input" value="{{inputValue}}" bindblur="bindInputBlur" placeholder="说点什么吧~" />
+    <input class="danmu-input" value="{{inputValue}}" bindinput="bindInput" placeholder="说点什么吧~" />
     <view class="danmu-button" bindtap="bindSendDanmu">发射</view>
   </view>
 </view>

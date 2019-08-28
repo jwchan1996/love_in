@@ -219,7 +219,10 @@ Page({
     return out
   },
 
-  bindInputBlur(e) {
+  /**
+   * 监听输入框值得变化
+   */
+  bindInput(e) {
     this.setData({
       inputValue: e.detail.value
     })
@@ -234,6 +237,17 @@ Page({
         title: '提示',
         content: '弹幕内容不能为空……',
         showCancel: false
+      })
+      return
+    }
+    if (!this.data.checkedVid){
+      wx.showModal({
+        title: '提示',
+        content: '请先选择集数……',
+        showCancel: false
+      })
+      this.setData({
+        inputValue: ''
       })
       return
     }
