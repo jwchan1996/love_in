@@ -229,6 +229,14 @@ Page({
    * 发送弹幕
    */
   bindSendDanmu() {
+    if(this.data.inputValue.trim() == ''){
+      wx.showModal({
+        title: '提示',
+        content: '弹幕内容不能为空……',
+        showCancel: false
+      })
+      return
+    }
     //获取随机弹幕颜色
     let danMuColor = getRandomColor()
     console.log(danMuColor)
