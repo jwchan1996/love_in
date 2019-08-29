@@ -260,6 +260,9 @@ Page({
       text: this.data.inputValue,
       color: danMuColor
     })
+    this.setData({
+      inputValue: ''
+    })
     //获取当前弹幕在视频的秒数
     console.log(this.data.currentTime)
     let time = Math.round(this.data.currentTime)
@@ -282,11 +285,6 @@ Page({
       },
       success: res => {
         console.log(res.data)
-      },
-      complete: res => {
-        this.setData({
-          inputValue: ''
-        })
       }
     })
   },
