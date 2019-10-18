@@ -29,12 +29,6 @@
         "text": "番剧",
         "iconPath": "images/tag_square.png",
         "selectedIconPath": "images/tag_square_selected.png"
-      },
-      {
-        "pagePath": "pages/mine/mine",
-        "text": "我的",
-        "iconPath": "images/tag_mine.png",
-        "selectedIconPath": "images/tag_mine_selected.png"
       }
     ]
   },

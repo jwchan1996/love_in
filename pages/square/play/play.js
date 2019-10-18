@@ -133,6 +133,9 @@ Page({
    */
   getRealUrl(url) {
 
+    //暂停视频
+    this.videoContext.pause()
+
     wx.showLoading({
       title: '加载中…',
     })
@@ -146,11 +149,14 @@ Page({
           src: res.data.url
         })
 
-        wx.hideLoading()
+        setTimeout(() => {
+          wx.hideLoading()
 
-        this.videoContext.play()
+          this.videoContext.play()
 
-        console.log(this.data.src)
+          console.log(this.data.src)
+        }, 1000)
+        
       }
     })
 
@@ -175,8 +181,6 @@ Page({
   play(e) {
     //获取视频直链
     this.getRealUrl(e.currentTarget.dataset.content)
-    //暂停视频
-    this.videoContext.pause()
     //设置选中的视频di，添加选中样式，设置video全屏title
     this.setData({
       checkedVid: e.currentTarget.dataset.id,

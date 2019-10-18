@@ -15,7 +15,7 @@
 .danmu-input{
   width: 70vw;
   height: 30px;
-  background-color: #f8f8f8;
+  background-color: #ececec;
   padding: 4px 10px;
   font-size: 14px;
   border-radius: 5px;
@@ -38,7 +38,7 @@
 .video-item{
   border: 1px solid #009688; 
   border-radius: 10px;
-  padding: 5px 10px;
+  padding: 10px 10px;
   margin: 10px 0;
 }
 
