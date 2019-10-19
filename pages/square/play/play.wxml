@@ -33,3 +33,8 @@
   </block>
 
 </view>
+
+<view wx:if="{{videoList.length==0}}" style="display:flex;flex-direction:column;align-items:center;justify-content:center;margin:20px;">
+  <image style="height:80px;width:80px;" src="/images/tips.png"></image>
+  <text style="color:#ccc;margin:10px;font-size:12px;">空空如也</text>
+</view>

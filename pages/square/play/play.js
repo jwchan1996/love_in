@@ -14,7 +14,7 @@ Page({
     av: null,
     src: '',
     videoTitle: '',
-    videoList: [],
+    videoList: null,
     checkedVid: null,
     danmuList: [{
         text: '第 1s 出现的弹幕',
@@ -116,11 +116,13 @@ Page({
       url: `https://api.clicli.us/videos?pid=${this.data.av}&page=1&pageSize=150`,
       success: res => {
 
-        console.log(res.data.videos)
+        console.log(res.data)
 
-        this.setData({
-          videoList: res.data.videos
-        })
+        if(res.data.code == 200){
+          this.setData({
+            videoList: res.data.videos == null ? [] : res.data.videos
+          })
+        }
 
         wx.hideLoading()
 
