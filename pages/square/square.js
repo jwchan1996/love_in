@@ -214,7 +214,7 @@ Page({
         default:
       }
 
-    }, 300)
+    }, 1000)
 
   },
 
@@ -228,7 +228,7 @@ Page({
     })
 
     wx.request({
-      url: 'https://api.clicli.us/posts?status=public&sort=&tag=推荐&uid=&page=1&pageSize=12',
+      url: 'https://api.clicli.us/posts?status=public&sort=&tag=推荐&uid=&page=1&pageSize=8',
       success: res => {
 
         wx.hideLoading()
@@ -248,8 +248,8 @@ Page({
 
           this.setData({
             recommend: arr,
-            currentTap: 0,
-            currentPostData: arr
+            // currentTap: 0,
+            // currentPostData: arr
           })
 
         } else {
