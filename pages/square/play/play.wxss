@@ -49,3 +49,10 @@
 .checked{
   background-color: #ececec;
 }
+
+.account,.password{
+  background-color: #ececec;
+  padding: 5px 10px;
+  margin: 5px 0 10px 0;
+  border-radius: 5px;
+}

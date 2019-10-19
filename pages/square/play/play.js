@@ -28,7 +28,15 @@ Page({
       }
     ],
     currentTime: 0,
-    inputValue: ''
+    inputValue: '',
+    //是否隐藏登录弹出框
+    hiddenmodalput: true,
+    //用户名
+    account: '',
+    //密码
+    password: '',
+    //用户id
+    uid: 0
   },
 
   /**
@@ -233,9 +241,103 @@ Page({
   },
 
   /**
+   * 登录框取消
+   */
+  cancel(){
+    this.setData({
+      hiddenmodalput: true
+    })
+  },
+
+  /**
+   * 登录框确认
+   */
+  confirm(){
+    if (this.data.account.trim() == '' || this.data.password.trim() == '') {
+      wx.showModal({
+        title: '提示',
+        content: '用户名或密码不能为空',
+        showCancel: false
+      })
+      return
+    }
+    wx.showLoading({
+      title: '登录中……',
+      icon: 'none'
+    })
+    wx.request({
+      url: `https://api.clicli.us/user/login`,
+      method: "POST",
+      data: {
+        name: this.data.account,
+        pwd: this.data.password
+      },
+      header: {
+        "content-type": 'application/json; charset=utf-8'
+      },
+      success: res => {
+        console.log(res.data)
+        if(res.data.code == 200){
+          wx.showToast({
+            title: '登录成功',
+            icon: 'none'
+          })
+          wx.setStorageSync('uid', res.data.user.id)
+          this.setData({
+            uid: res.data.user.id,
+            hiddenmodalput: true
+          })
+        }else{
+          wx.showToast({
+            title: '用户名或密码错误',
+            icon: 'none'
+          })
+        }
+      },
+      fail(err){
+        wx.showToast({
+          title: '服务器开小差了',
+        })
+      }
+    })
+    this.setData({
+      hiddenmodalput: true
+    })
+  },
+
+  /**
+   * 绑定用户名输入框的值
+   */
+  bindAccount(e){
+    console.log(e.detail.value)
+    this.setData({
+      account: e.detail.value
+    })
+  },
+
+  /**
+  * 绑定密码输入框的值
+  */
+  bindPassword(e) {
+    console.log(e.detail.value)
+    this.setData({
+      password: e.detail.value
+    })
+  },
+
+  /**
    * 发送弹幕
    */
   bindSendDanmu() {
+    let loginStatus = wx.getStorageSync('uid')
+    console.log(loginStatus)
+    if(!loginStatus){
+      console.log("请先登录")
+      this.setData({
+        hiddenmodalput: !this.data.hiddenmodalput
+      })
+      return
+    }
     if(this.data.inputValue.trim() == ''){
       wx.showModal({
         title: '提示',
@@ -274,7 +376,7 @@ Page({
       data: {
         content: this.data.inputValue,
         pid: parseInt(this.data.av),
-        uid: parseInt(200),
+        uid: parseInt(this.data.uid),
         vid: parseInt(this.data.checkedVid) ? parseInt(this.data.checkedVid) : 1,
         color: danMuColor ? danMuColor : '#fff',
         tuid: 0,
@@ -282,7 +384,7 @@ Page({
       },
       header: {
         "content-type": 'application/json; charset=utf-8',
-        "cookie": "__cfduid=ddacd84b3f0f34f0f18d348ee112439ac1559204920; token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImV4cCI6MTU2Njk2Mjk4NiwiaWF0IjpudWxsLCJpc3MiOm51bGwsImp0aSI6bnVsbCwibGV2ZWwiOjQsIm5iZiI6bnVsbCwic3ViIjpudWxsfQ.BxF2GrnEJt5QS20Mmm5LjCEGdGWd5Jmx_ymZgd-XrmM; uqq=741755613; uid=200; level=4" 
+        // "cookie": "__cfduid=ddacd84b3f0f34f0f18d348ee112439ac1559204920; token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImV4cCI6MTU2Njk2Mjk4NiwiaWF0IjpudWxsLCJpc3MiOm51bGwsImp0aSI6bnVsbCwibGV2ZWwiOjQsIm5iZiI6bnVsbCwic3ViIjpudWxsfQ.BxF2GrnEJt5QS20Mmm5LjCEGdGWd5Jmx_ymZgd-XrmM; uqq=741755613; uid=200; level=4" 
       },
       success: res => {
         console.log(res.data)

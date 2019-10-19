@@ -16,6 +16,10 @@
     <input class="danmu-input" value="{{inputValue}}" bindinput="bindInput" placeholder="说点什么吧~" />
     <view class="danmu-button" bindtap="bindSendDanmu">发射</view>
   </view>
+  <modal id="modal" hidden="{{hiddenmodalput}}" title="登录C站账号" confirm-text="确认" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+    <text>用户名：</text><input class="account" type='text' auto-focus bindinput="bindAccount" />
+    <text>密码：</text><input class="password" type='password' auto-focus bindinput="bindPassword" />
+  </modal>
 </view>
 
 <!-- 视频列表 -->
