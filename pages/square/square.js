@@ -124,14 +124,16 @@ Page({
             ret[day].push(item)
           })
 
-          this.data.weekList = ret
-          this.data.Monday = ret[1]
-          this.data.Tuesday = ret[2]
-          this.data.Wednesday = ret[3]
-          this.data.Thursday = ret[4]
-          this.data.Friday = ret[5]
-          this.data.Saturday = ret[6]
-          this.data.Sunday = ret[7]
+          this.setData({
+            weekList: ret,
+            Monday: ret[1],
+            Tuesday: ret[2],
+            Wednesday: ret[3],
+            Thursday: ret[4],
+            Friday: ret[5],
+            Saturday: ret[6],
+            Sunday: ret[7]
+          })
 
         }else{
 
@@ -148,59 +150,71 @@ Page({
    */
   getDayList(e) {
 
-    let ddy = e.currentTarget.dataset.ddy
+    wx.showLoading({
+      title: '加载数据……',
+      icon: 'none',
+      mask: true
+    })
 
-    switch (ddy) {
-      case '0':   
-        this.setData({
-          currentTap: 0, 
-          currentPostData: this.data.recommend
-        })  
-        break
-      case '1':
-        this.setData({
-          currentTap: 1, 
-          currentPostData: this.data.Monday
-        })
-        break
-      case '2':
-        this.setData({
-          currentTap: 2, 
-          currentPostData: this.data.Tuesday
-        })
-        break
-      case '3':
-        this.setData({
-          currentTap: 3, 
-          currentPostData: this.data.Wednesday
-        })
-        break
-      case '4':
-        this.setData({
-          currentTap: 4, 
-          currentPostData: this.data.Thursday
-        })
-        break
-      case '5':
-        this.setData({
-          currentTap: 5, 
-          currentPostData: this.data.Friday
-        })
-        break
-      case '6':
-        this.setData({
-          currentTap: 6, 
-          currentPostData: this.data.Saturday
-        })
-        break
-      case '7':
-        this.setData({
-          currentTap: 7, 
-          currentPostData: this.data.Sunday
-        })
-        break
-      default:
-    }
+    setTimeout(() => {
+
+      wx.hideLoading()
+
+      let ddy = e.currentTarget.dataset.ddy
+
+      switch (ddy) {
+        case '0':
+          this.setData({
+            currentTap: 0,
+            // currentPostData: this.data.recommend
+          })
+          break
+        case '1':
+          this.setData({
+            currentTap: 1,
+            // currentPostData: this.data.Monday
+          })
+          break
+        case '2':
+          this.setData({
+            currentTap: 2,
+            // currentPostData: this.data.Tuesday
+          })
+          break
+        case '3':
+          this.setData({
+            currentTap: 3,
+            // currentPostData: this.data.Wednesday
+          })
+          break
+        case '4':
+          this.setData({
+            currentTap: 4,
+            // currentPostData: this.data.Thursday
+          })
+          break
+        case '5':
+          this.setData({
+            currentTap: 5,
+            // currentPostData: this.data.Friday
+          })
+          break
+        case '6':
+          this.setData({
+            currentTap: 6,
+            currentPostData: this.data.Saturday
+          })
+          break
+        case '7':
+          this.setData({
+            currentTap: 7,
+            // currentPostData: this.data.Sunday
+          })
+          break
+        default:
+      }
+
+    }, 300)
 
   },
 
@@ -233,13 +247,10 @@ Page({
           }
 
           this.setData({
-            recommend: arr
-          })
-
-          this.setData({
+            recommend: arr,
             currentTap: 0,
             currentPostData: arr
-          })  
+          })
 
         } else {
           

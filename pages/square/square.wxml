@@ -51,7 +51,63 @@
 
   <view class="week-item-container">
 
-    <block wx:for="{{currentPostData}}" wx:key="item.av" wx:for-item="item">
+    <block wx:for="{{recommend}}" wx:key="item.av" wx:for-item="item" wx:if="{{currentTap==0}}">
+      <view class="week-item" data-av="{{item.av}}" data-title="{{item.title}}" bindtap='playVideo'>
+        <view class="load-bg">
+          <image class="bangumi-img" wx:if="{{item.suo}}" src='{{item.suo}}' mode="aspectFill"></image>
+        </view>
+        <view class="bangumi-name">{{item.title}}</view>
+      </view>
+    </block>
+    <block wx:for="{{Monday}}" wx:key="item.av" wx:for-item="item" wx:if="{{currentTap==1}}">
+      <view class="week-item" data-av="{{item.av}}" data-title="{{item.title}}" bindtap='playVideo'>
+        <view class="load-bg">
+          <image class="bangumi-img" wx:if="{{item.suo}}" src='{{item.suo}}' mode="aspectFill"></image>
+        </view>
+        <view class="bangumi-name">{{item.title}}</view>
+      </view>
+    </block>
+    <block wx:for="{{Tuesday}}" wx:key="item.av" wx:for-item="item" wx:if="{{currentTap==2}}">
+      <view class="week-item" data-av="{{item.av}}" data-title="{{item.title}}" bindtap='playVideo'>
+        <view class="load-bg">
+          <image class="bangumi-img" wx:if="{{item.suo}}" src='{{item.suo}}' mode="aspectFill"></image>
+        </view>
+        <view class="bangumi-name">{{item.title}}</view>
+      </view>
+    </block>
+    <block wx:for="{{Wednesday}}" wx:key="item.av" wx:for-item="item" wx:if="{{currentTap==3}}">
+      <view class="week-item" data-av="{{item.av}}" data-title="{{item.title}}" bindtap='playVideo'>
+        <view class="load-bg">
+          <image class="bangumi-img" wx:if="{{item.suo}}" src='{{item.suo}}' mode="aspectFill"></image>
+        </view>
+        <view class="bangumi-name">{{item.title}}</view>
+      </view>
+    </block>
+    <block wx:for="{{Thursday}}" wx:key="item.av" wx:for-item="item" wx:if="{{currentTap==4}}">
+      <view class="week-item" data-av="{{item.av}}" data-title="{{item.title}}" bindtap='playVideo'>
+        <view class="load-bg">
+          <image class="bangumi-img" wx:if="{{item.suo}}" src='{{item.suo}}' mode="aspectFill"></image>
+        </view>
+        <view class="bangumi-name">{{item.title}}</view>
+      </view>
+    </block>
+    <block wx:for="{{Friday}}" wx:key="item.av" wx:for-item="item" wx:if="{{currentTap==5}}">
+      <view class="week-item" data-av="{{item.av}}" data-title="{{item.title}}" bindtap='playVideo'>
+        <view class="load-bg">
+          <image class="bangumi-img" wx:if="{{item.suo}}" src='{{item.suo}}' mode="aspectFill"></image>
+        </view>
+        <view class="bangumi-name">{{item.title}}</view>
+      </view>
+    </block>
+    <block wx:for="{{Saturday}}" wx:key="item.av" wx:for-item="item" wx:if="{{currentTap==6}}">
+      <view class="week-item" data-av="{{item.av}}" data-title="{{item.title}}" bindtap='playVideo'>
+        <view class="load-bg">
+          <image class="bangumi-img" wx:if="{{item.suo}}" src='{{item.suo}}' mode="aspectFill"></image>
+        </view>
+        <view class="bangumi-name">{{item.title}}</view>
+      </view>
+    </block>
+    <block wx:for="{{Sunday}}" wx:key="item.av" wx:for-item="item" wx:if="{{currentTap==7}}">
       <view class="week-item" data-av="{{item.av}}" data-title="{{item.title}}" bindtap='playVideo'>
         <view class="load-bg">
           <image class="bangumi-img" wx:if="{{item.suo}}" src='{{item.suo}}' mode="aspectFill"></image>
