@@ -214,7 +214,7 @@ Page({
         default:
       }
 
-    }, 1000)
+    }, 300)
 
   },
 
@@ -228,7 +228,7 @@ Page({
     })
 
     wx.request({
-      url: 'https://api.clicli.us/posts?status=public&sort=&tag=推荐&uid=&page=1&pageSize=8',
+      url: 'https://api.clicli.us/posts?status=public&sort=&tag=推荐&uid=&page=1&pageSize=12',
       success: res => {
 
         wx.hideLoading()
